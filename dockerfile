@@ -1,4 +1,4 @@
-FROM node:18.18 as build
+FROM node:19.5.0-alpine
 
 # Create html and workdir
 RUN mkdir -p /var/www/html/
@@ -12,11 +12,11 @@ COPY . /home/myFrontend
 
 #Install npm
 RUN npm install -g @angular/cli
-RUN NODE_ENV=development npm i
+RUN npm install
 
 # Build
 RUN npm run build
 
-# Copy files to html dir
-FROM node:18.18
-COPY --from=build /home/myFrontend/dist/myProject/ /var/www/html/
+# # Copy files to html dir
+# FROM node:19.5.0-alpine
+# COPY --from=build /home/myFrontend/dist/myProject/ /var/www/html/
