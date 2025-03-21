@@ -12,7 +12,7 @@ COPY . /home/myFrontend
 
 #Install npm
 RUN npm install -g @angular/cli
-RUN npm install
+RUN NODE_ENV=development npm i
 
 # Build
 RUN npm run build
