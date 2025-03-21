@@ -2,13 +2,14 @@ FROM node:19.5.0-alpine
 
 # Create html and workdir
 RUN mkdir -p /var/www/html/
-RUN mkdir -p /home/myFrontend
+RUN mkdir -p /publish
 
-WORKDIR /home/myFrontend
+WORKDIR /publish
+COPY --from=build-env /publish .
 
 # install package.json 
-COPY package.json /home/myFrontend/package.json
-COPY . /home/myFrontend
+COPY package.json /publish/package.json
+COPY . /publish
 
 #Install npm
 RUN npm install -g @angular/cli
