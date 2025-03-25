@@ -1,7 +1,7 @@
 FROM node:20-alpine
-WORKDIR /publish
+WORKDIR /src
 COPY . .
-RUN npm install -g @angular/cli
+RUN npm install
 RUN npm run build
 
 # # Copy files to html dir
