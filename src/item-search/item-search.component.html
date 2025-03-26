@@ -1,0 +1,12 @@
+<div id="search-component">
+  <label for="search-box">Búsqueda de objeto</label>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)" />a
+
+  <ul class="search-result">
+    <li *ngFor="let item of items | async">
+      <a>
+        {{item.name}}
+      </a>
+    </li>
+  </ul>
+</div>
